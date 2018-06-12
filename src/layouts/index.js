@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components';
-import Logo from '../../public/assets/Logo.svg';
 import {Logo as LogoComponent} from '../utils/Logo';
 import Media from "react-media";
 import {BurgerMenu} from '../utils/BurgerMenu';
@@ -145,7 +144,7 @@ export default ({ children }) => (
     </Content>
     <Footer>
         <FooterLogoContainer>
-            <Logo />
+            <LogoComponent />
         </FooterLogoContainer>
         <AddressContainer>
             Wybrzeże Wyspiańskiego 27<br />
