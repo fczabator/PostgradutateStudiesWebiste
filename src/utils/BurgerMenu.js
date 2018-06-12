@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {MobileLink} from './MobileLink';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import MenuIcon from 'material-ui/svg-icons/navigation/menu';
+import CloseIcon from 'material-ui/svg-icons//navigation/close';
 import IconButton from 'material-ui/IconButton';
 
 const Container = styled.div`
@@ -14,6 +15,12 @@ const Container = styled.div`
     > * {
         margin: 30px 10px 10px 10px;
     }
+`;
+
+const CloseContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 20px;
 `;
 
 export class BurgerMenu extends React.Component {
@@ -31,7 +38,11 @@ export class BurgerMenu extends React.Component {
                 </IconButton>
                 <Drawer open={this.state.open} onRequestChange={this.toggleDrawer} style={{width: '60%'}} docked={false}>
                     <Container>
-                        <MobileLink onClick={this.toggleDrawer}>Cofnij</MobileLink>
+                        <CloseContainer>
+                            <IconButton style={{float: 'left'}} iconStyle={{fill: 'white', width: 40, height: 40}} onClick={this.toggleDrawer}>
+                                <CloseIcon />
+                            </IconButton>
+                        </CloseContainer>
                         {this.props.children}
                     </Container>
                 </Drawer>

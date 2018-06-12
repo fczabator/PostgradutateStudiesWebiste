@@ -4,6 +4,8 @@ import {Logo as LogoComponent} from '../utils/Logo';
 import Media from "react-media";
 import {BurgerMenu} from '../utils/BurgerMenu';
 import {MobileLink} from '../utils/MobileLink';
+import FileIcon from 'material-ui/svg-icons/file/attachment';
+import IconButton from 'material-ui/IconButton';
 
 const PageContainer = styled.div`
     display: flex;
@@ -99,6 +101,12 @@ const AddressContainer = styled.div`
     text-align: center;
 `;
 
+const NavigationItem = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+
 const formLink = 'http://cku.pwr.edu.pl/fcp/NGBUKOQtTKlQhbx08SlkTVgNQX2o8DAoHNiwFE1wZDyEPG1gnBVcoFW8SBDRKTxMKRy0SODwBBAEIMQheCFVAORFCHzY/_users/code_uDlYOLhFKNRk7XwMxCwhYRgBCAz8-QwgGHGsRXQ/zalaczniki/att_studia_karta_zgloszenia.doc';
 const programmeDownloadLink = 'http://cku.pwr.edu.pl/fcp/NGBUKOQtTKlQhbx08SlkTVgNQX2o8DAoHNiwFE1wZDyEPG1gnBVcoFW8SBDRKTxMKRy0SODwBBAEIMQheCFVAORFCHzY/_users/code_uDlYOLhFKNRk7XwMxCwhYRgBCAz8-QwgGHGsRXQ/studia/android_3/android_i_ios_nowoczesne_aplikacje_mobilne_program_studiow_edycja_trzecia.pdf'
 const recruitmentLink = 'http://cku.pwr.edu.pl/studia-podyplomowe/rekrutacja';
@@ -108,8 +116,22 @@ export default ({ children }) => (
     <Media query="(max-width: 900px)">
         {matches => matches && (
             <BurgerMenu>
-                <MobileLink href={programmeDownloadLink} download  target="_blank">Program</MobileLink>
-                <MobileLink href={formLink} download target="_blank">Formularz Zgłoszeniowy</MobileLink>
+                <MobileLink href={programmeDownloadLink} download  target="_blank">
+                    <NavigationItem>
+                        Program
+                        <IconButton iconStyle={{fill: 'white', width: 30, height: 30}}>
+                            <FileIcon />
+                        </IconButton>
+                    </NavigationItem>
+                </MobileLink>
+                <MobileLink href={formLink} download target="_blank">
+                    <NavigationItem>
+                        Formularz zgłoszeniowy
+                        <IconButton iconStyle={{fill: 'white', width: 30, height: 30}}>
+                            <FileIcon />
+                        </IconButton>
+                    </NavigationItem>
+                </MobileLink>
                 <MobileLink href={recruitmentLink} target="_blank">Rekrutacja</MobileLink>
             </BurgerMenu>
         )
